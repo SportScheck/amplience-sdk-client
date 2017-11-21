@@ -92,7 +92,7 @@
                         }
                     }(i+1));
 
-                    const noTouchEvents = this.options.navigateOnHover ? 'mouseup mouseenter' : 'mouseup';
+                    var noTouchEvents = this.options.navigateOnHover ? 'mouseup mouseenter' : 'mouseup';
 
                     this._children.eq(i).on(!this.canTouch?'mousedown':'touchstart', $.proxy(start,self));
                     this._children.eq(i).on(!this.canTouch?noTouchEvents:'touchend',$.proxy(activate,self));
