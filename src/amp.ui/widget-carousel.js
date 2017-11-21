@@ -11,6 +11,7 @@
             preferForward: false,
             no3D: false,
             thumbWidthExceed:0,
+            navigateOnHover: false,
             gesture:{
                 enabled:false,
                 fingers:2,
@@ -91,8 +92,10 @@
                         }
                     }(i+1));
 
+                    const noTouchEvents = this.options.navigateOnHover ? 'mouseup mouseenter' : 'mouseup';
+
                     this._children.eq(i).on(!this.canTouch?'mousedown':'touchstart', $.proxy(start,self));
-                    this._children.eq(i).on(!this.canTouch?'mouseup':'touchend',$.proxy(activate,self));
+                    this._children.eq(i).on(!this.canTouch?noTouchEvents:'touchend',$.proxy(activate,self));
                 }
             }
 
